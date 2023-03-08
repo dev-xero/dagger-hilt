@@ -1,5 +1,6 @@
 package dev.xero.daggerhilt.core.di
 
+import android.app.Application
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +27,7 @@ object AppModule {
 
 	@Provides
 	@Singleton
-	fun providesMyRepository(api: TestAPI): MyRepository {
-		return MyRepositoryImpl(api)
+	fun providesMyRepository(api: TestAPI, app: Application): MyRepository {
+		return MyRepositoryImpl(api, app)
 	}
 }
