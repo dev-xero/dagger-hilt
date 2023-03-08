@@ -4,8 +4,9 @@ import android.app.Application
 import dev.xero.daggerhilt.R
 import dev.xero.daggerhilt.data.remote.TestAPI
 import dev.xero.daggerhilt.domain.repository.MyRepository
+import javax.inject.Inject
 
-class MyRepositoryImpl(
+class MyRepositoryImpl @Inject constructor (
 	private val api: TestAPI,
 	private val appContext: Application
 ) : MyRepository {

@@ -24,10 +24,4 @@ object AppModule {
 			.build()
 			.create(TestAPI::class.java)
 	}
-
-	@Provides
-	@Singleton
-	fun providesMyRepository(api: TestAPI, app: Application): MyRepository {
-		return MyRepositoryImpl(api, app)
-	}
 }
