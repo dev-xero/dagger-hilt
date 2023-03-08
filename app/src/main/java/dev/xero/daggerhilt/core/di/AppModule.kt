@@ -5,6 +5,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.xero.daggerhilt.data.remote.TestAPI
+import dev.xero.daggerhilt.data.repository.MyRepositoryImpl
+import dev.xero.daggerhilt.domain.repository.MyRepository
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -20,5 +22,11 @@ object AppModule {
 			.baseUrl("https://test.api.com/")
 			.build()
 			.create(TestAPI::class.java)
+	}
+
+	@Provides
+	@Singleton
+	fun providesMyRepository(api: TestAPI): MyRepository {
+		return MyRepositoryImpl(api)
 	}
 }
