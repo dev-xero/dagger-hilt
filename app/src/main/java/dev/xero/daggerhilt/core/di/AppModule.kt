@@ -14,7 +14,7 @@ object AppModule {
 
 	// a dependency that dagger hilt can provide
 	@Provides
-	@Singleton
+	@Singleton // scope annotation
 	fun providesTestAPI(): TestAPI {
 		return Retrofit.Builder()
 			.baseUrl("https://test.api.com/")
